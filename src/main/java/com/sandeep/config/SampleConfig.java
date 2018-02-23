@@ -35,6 +35,6 @@ public class SampleConfig {
 	private Properties additionalProp() {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-		return null;
+		return properties;
 	}
 }

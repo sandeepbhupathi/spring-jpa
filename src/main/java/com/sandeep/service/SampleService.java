@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import com.sandeep.model.Bank;
+import com.sandeep.repo.BankRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,9 @@ public class SampleService {
 	Logger LOGGER = LoggerFactory.getLogger(getClass());
 	@Autowired
 	private UserRepo repo;
+
+	@Autowired
+    private BankRepo bankRepo;
 	
 	@Autowired
 	private AddressRepo addrRepo;
@@ -67,4 +72,12 @@ public class SampleService {
 		
 		return repo.findAllDist(page);
 	}*/
+
+	public List<Bank> findAllBankDetails(){
+	    return bankRepo.findAll();
+    }
+
+    public Bank saveBank(Bank bank) {
+	    return  bankRepo.save(bank);
+    }
 }

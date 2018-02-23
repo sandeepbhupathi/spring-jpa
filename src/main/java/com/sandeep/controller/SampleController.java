@@ -2,6 +2,7 @@ package com.sandeep.controller;
 
 import java.util.List;
 
+import com.sandeep.model.Bank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -41,5 +42,15 @@ public class SampleController {
 	@RequestMapping(path = "/saveUSer",method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
     public User saveUser(@RequestBody User saveUser){
 	    return sampleService.saveUser(saveUser);
+    }
+
+    @RequestMapping(path="/getBank",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Bank> getAllBankList(){
+	    return sampleService.findAllBankDetails();
+    }
+
+    @RequestMapping(path = "/saveBank",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Bank saveBank(@RequestBody Bank bank){
+	    return sampleService.saveBank(bank);
     }
 }

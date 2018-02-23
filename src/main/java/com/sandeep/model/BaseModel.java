@@ -7,6 +7,9 @@ import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
 
+/*
+* When you have some common columns which can be defined as has a relation use parent child inheritance
+* */
 @MappedSuperclass
 public class BaseModel {
 
