@@ -58,7 +58,11 @@ public class SampleService {
 		return new PageImpl<>(sampleList, page, pageCount);
 		
 	}
-	
+
+	public User saveUser(User user){
+	    User savedEntity = repo.save(user);
+	    return savedEntity;
+    }
 	/*public Page<Object> findDist(Pageable page){
 		
 		return repo.findAllDist(page);
