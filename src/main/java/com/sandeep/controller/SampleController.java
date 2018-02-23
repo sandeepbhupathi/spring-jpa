@@ -2,7 +2,7 @@ package com.sandeep.controller;
 
 import java.util.List;
 
-import com.sandeep.model.Bank;
+import com.sandeep.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -10,8 +10,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import com.sandeep.dto.SampleDTO;
-import com.sandeep.model.Address;
-import com.sandeep.model.User;
 import com.sandeep.service.SampleService;
 
 @RestController
@@ -28,7 +26,16 @@ public class SampleController {
 	public Page<Address> findAllAddress(@RequestParam("pageNbr") int page,@RequestParam("pgSize") int pageSize){
 		return sampleService.findAllAddress(new PageRequest(page, pageSize));
 	}
-	
+
+	@RequestMapping(path="/findAllAccountTran",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Account> findAllAccount(){
+	    return sampleService.findAllAccounts();
+    }
+
+	@RequestMapping(path="/findAllCredentials")
+    public List<Credentials> findAllCredentials(){
+	    return sampleService.findAllCredentials();
+    }
 	/*@RequestMapping(path="/testService3")
 	public Page<Address> findAllAddress2(@RequestParam("pageNbr") int page,@RequestParam("pgSize") int pageSize){
 		return sampleService.findNative(new PageRequest(page, pageSize));

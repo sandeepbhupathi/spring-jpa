@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import com.sandeep.model.Bank;
-import com.sandeep.repo.BankRepo;
+import com.sandeep.model.*;
+import com.sandeep.repo.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +17,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.sandeep.dto.SampleDTO;
-import com.sandeep.model.Address;
-import com.sandeep.model.User;
-import com.sandeep.repo.AddressRepo;
-import com.sandeep.repo.UserRepo;
 
 @Service
 public class SampleService {
@@ -37,8 +33,18 @@ public class SampleService {
 	
 	@PersistenceContext
 	private EntityManager em;
-	
-	public List<User> findAllUsers(){
+
+	@Autowired
+    private CredentialsRepo credentialsRepo;
+
+	@Autowired
+    private AccountRepo accountRepo;
+
+	public List<Account> findAllAccounts(){
+	    return accountRepo.findAll();
+    }
+
+    public List<User> findAllUsers(){
 		LOGGER.info("inside service");
 		return repo.findAll();
 	}
@@ -79,5 +85,9 @@ public class SampleService {
 
     public Bank saveBank(Bank bank) {
 	    return  bankRepo.save(bank);
+    }
+
+    public List<Credentials> findAllCredentials(){
+	    return credentialsRepo.findAll();
     }
 }

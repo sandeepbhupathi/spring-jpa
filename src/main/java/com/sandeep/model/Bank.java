@@ -2,9 +2,7 @@ package com.sandeep.model;
 
 import javax.annotation.Generated;
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name="bank")
@@ -20,10 +18,29 @@ public class Bank extends BaseModel {
     @Embedded
     private BankAddress bankAddress = new BankAddress();
 
+    //Use Element collection when you have set of data mapped to same id's go either with list or map
     @ElementCollection
     @CollectionTable(name="bank_contacts",joinColumns = @JoinColumn(name = "id"))
     @Column(name="contact_name")
     private List<String> contactList = new ArrayList<>();
+
+    @ElementCollection
+    @CollectionTable(name="bank_contacts",joinColumns = @JoinColumn(name="id"))
+    @Column(name="contact_name")
+    @MapKeyColumn(name="position_type")
+    private Map<String,String> contactMap = new HashMap<>();
+
+    @OneToOne(mappedBy = "bank")
+    private Credentials credentials;
+
+   /* public Credentials getCredentials() {
+        return credentials;
+    }*/
+
+    public Map<String, String> getContactMap() {
+        return contactMap;
+    }
+
 
     public List<String> getContactList() {
         return contactList;
