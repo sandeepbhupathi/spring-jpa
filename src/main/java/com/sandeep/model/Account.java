@@ -65,7 +65,7 @@ public class Account extends BaseModel{
         return closeDate;
     }
 
-    public List<TransactionTbl> getaTransient() {
+   /* public List<TransactionTbl> getaTransient() {
         return aTransient;
-    }
+    }*/
 }

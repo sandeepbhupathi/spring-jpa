@@ -29,3 +29,16 @@ DROP TABLE IF EXISTS ACCOUNT;
 create table ACCOUNT (account_id BIGINT IDENTITY(1,1) PRIMARY KEY,BANK_ID BIGINT,ACCOUNT_TYPE_ID BIGINT,NAME VARCHAR(30),INITIAL_BALANCE DECIMAL(10,2),CLOSING_BALANCE DECIMAL(10,2),
 OPEN_DATE DATE,CLOSE_DATE DATE,last_upd_ts TIMESTAMP,last_upd_usr_id varchar(30),crt_dt date,crt_usr_id varchar(30));
 
+DROP TABLE IF EXISTS BUDGET;
+create table BUDGET (budget_id BIGINT IDENTITY(1,1) PRIMARY KEY,name varchar(100),max_amount decimal(10,2),period varchar(45));
+
+DROP TABLE IF EXISTS BUDGET_TRANSACTION;
+create table BUDGET_TRANSACTION (transaction_id BIGINT,budget_id BIGINT);
+
+DROP TABLE IF EXISTS CURRENCY;
+create table CURRENCY (name varchar(30),COUNTRY_NAME varchar(30),symbol varchar(30));
+
+DROP TABLE IF EXISTS MARKET;
+create table MARKET(market_id BIGINT IDENTITY(1,1) PRIMARY KEY,name varchar(30),COUNTRY_NAME varchar(30),market_name varchar(30));
+
+

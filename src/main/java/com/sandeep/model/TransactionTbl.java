@@ -25,7 +25,13 @@ public class TransactionTbl extends BaseModel {
     @Column(name="note")
     private String note;
 
+    @ManyToOne
+    @JoinColumn(name = "account_id",nullable = false,insertable = false,updatable = false)
+    private Account account;
 
+    public Account getAccount() {
+        return account;
+    }
 
     public Long getTransactionId() {
         return transactionId;

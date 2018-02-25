@@ -20,9 +20,10 @@ insert into credentials(user_name,password,user_id) values ('Sandy','Sandy123',1
 
 insert into account(BANK_ID,ACCOUNT_TYPE_ID ,NAME,INITIAL_BALANCE,CLOSING_BALANCE,OPEN_DATE,CLOSE_DATE,
 last_upd_ts,last_upd_usr_id,crt_dt,crt_usr_id) values (1,1,'Sandeep',10000,5000,current_date-30,current_date-20,current_timestamp,'SYSTEM',current_date,'SYSTEM');
-
 insert into account(BANK_ID,ACCOUNT_TYPE_ID ,NAME,INITIAL_BALANCE,CLOSING_BALANCE,OPEN_DATE,CLOSE_DATE,
 last_upd_ts,last_upd_usr_id,crt_dt,crt_usr_id) values (1,1,'Sowmya',100,50,current_date-60,current_date-40,current_timestamp,'SYSTEM',current_date,'SYSTEM');
+insert into account(BANK_ID,ACCOUNT_TYPE_ID ,NAME,INITIAL_BALANCE,CLOSING_BALANCE,OPEN_DATE,CLOSE_DATE,
+last_upd_ts,last_upd_usr_id,crt_dt,crt_usr_id) values (1,1,'Srinika',100,50,current_date-60,current_date-40,current_timestamp,'SYSTEM',current_date,'SYSTEM');
 
 insert into transaction(ACCOUNT_ID,TRANSACTION_TYPE,AMOUNT,INITIAL_BALANCE,CLOSING_BALANCE,NOTE,last_upd_ts,last_upd_usr_id,crt_dt,crt_usr_id)
 values (1,'ATM',150.00,10000,9850,'ATM withdraw',current_timestamp,'SYSTEM',current_date,'SYSTEM');
@@ -30,6 +31,30 @@ insert into transaction(ACCOUNT_ID,TRANSACTION_TYPE,AMOUNT,INITIAL_BALANCE,CLOSI
 values (1,'NEFT',4850.00,9850,5000,'NEFT Transfer',current_timestamp,'SYSTEM',current_date,'SYSTEM');
 insert into transaction(ACCOUNT_ID,TRANSACTION_TYPE,AMOUNT,INITIAL_BALANCE,CLOSING_BALANCE,NOTE,last_upd_ts,last_upd_usr_id,crt_dt,crt_usr_id)
 values (2,'INT',50,100,50,'Internal Transfer',current_timestamp,'SYSTEM',current_date,'SYSTEM');
+insert into transaction(ACCOUNT_ID,TRANSACTION_TYPE,AMOUNT,INITIAL_BALANCE,CLOSING_BALANCE,NOTE,last_upd_ts,last_upd_usr_id,crt_dt,crt_usr_id)
+values (3,'INT',50,100,50,'Internal Transfer',current_timestamp,'SYSTEM',current_date,'SYSTEM');
+
+
+
+insert into BUDGET (NAME,MAX_AMOUNT,PERIOD) values ('Planning',1000,'30');
+insert into BUDGET (NAME,MAX_AMOUNT,PERIOD) values ('Requirements',1000,'30');
+insert into BUDGET (NAME,MAX_AMOUNT,PERIOD) values ('Construction and Testing',1000,'30');
+insert into BUDGET (NAME,MAX_AMOUNT,PERIOD) values ('Deployment',1000,'30');
+
+
+insert into BUDGET_TRANSACTION(TRANSACTION_ID,BUDGET_ID) values (1,1);
+insert into BUDGET_TRANSACTION(TRANSACTION_ID,BUDGET_ID) values (2,1);
+insert into BUDGET_TRANSACTION(TRANSACTION_ID,BUDGET_ID) values (3,2);
+insert into BUDGET_TRANSACTION(TRANSACTION_ID,BUDGET_ID) values (4,2);
+
+insert into currency(name,country_name,symbol) values ('dollar','United States','$');
+insert into currency(name,country_name,symbol) values ('rupee','India','INR');
+
+
+insert into market(name,country_name,market_name) values ('dollar','United States','IT');
+insert into market(name,country_name,market_name) values ('rupee','India','IT');
+insert into market(name,country_name,market_name) values ('dollar','United States','Banking');
+insert into market(name,country_name,market_name) values ('rupee','India','Banking');
 
 
 

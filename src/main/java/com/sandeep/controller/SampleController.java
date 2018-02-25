@@ -32,6 +32,15 @@ public class SampleController {
 	    return sampleService.findAllAccounts();
     }
 
+    @RequestMapping(path="/findAllBudget")
+    public List<Budget> findAllBudget(){
+	    return sampleService.findAllBudget();
+    }
+
+    @RequestMapping(path = "/findCurrency")
+    public Currency findCurrency(){
+		return sampleService.findAllCurrencyById();
+	}
 	@RequestMapping(path="/findAllCredentials")
     public List<Credentials> findAllCredentials(){
 	    return sampleService.findAllCredentials();

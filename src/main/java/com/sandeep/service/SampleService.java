@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.sandeep.model.*;
+import com.sandeep.model.id.CurrencyId;
 import com.sandeep.repo.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,6 +40,20 @@ public class SampleService {
 
 	@Autowired
     private AccountRepo accountRepo;
+
+	@Autowired
+    private BudgetRepo budgetRepo;
+
+	@Autowired
+	private CurrencyRepo currencyRepo;
+
+	public Currency findAllCurrencyById(){
+		return currencyRepo.getOne(new CurrencyId("dollar","United States"));
+	}
+
+	public List<Budget> findAllBudget(){
+	    return budgetRepo.findAll();
+    }
 
 	public List<Account> findAllAccounts(){
 	    return accountRepo.findAll();
